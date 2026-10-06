@@ -29,7 +29,7 @@ export const fetchContent = createAsyncThunk(
     if (process.env.NEXT_PUBLIC_NEWS_API_KEY) {
       try {
         const query = categories.length > 0 ? categories.join(' OR ') : 'technology OR sports OR entertainment';
-        const res = await axios.get(`https://newsapi.org/v2/everything?q=${query}&sortBy=publishedAt&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}&pageSize=10`);
+        const res = await axios.get(`/api/news?q=${query}`);
         newsData = res.data.articles.map((article: any, index: number) => ({
           id: `news-${index}-${Date.now()}`,
           title: article.title,
