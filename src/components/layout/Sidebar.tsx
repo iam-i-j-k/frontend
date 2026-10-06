@@ -4,12 +4,11 @@ import Link from 'next/link';
 import { Home, TrendingUp, Heart, Settings, Rss } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
-import { useTranslation } from 'react-redux'; // Wait, it's from react-i18next!
-import { useTranslation as useTranslationI18n } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 export function Sidebar() {
   const pathname = usePathname();
-  const { t } = useTranslationI18n();
+  const { t } = useTranslation();
 
   const links = [
     { href: '/', label: t('my_feed'), icon: Home },
